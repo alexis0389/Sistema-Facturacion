@@ -1,0 +1,44 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/admin/customers" routerLinkActive="active">
+        <mat-icon>person</mat-icon> Clientes
+      </a>
+      <a mat-list-item routerLink="/admin/products" routerLinkActive="active">
+        <mat-icon>all_inbox</mat-icon> Productos
+      </a>
+      <a mat-list-item routerLink="/admin/movements" routerLinkActive="active">
+        <mat-icon>import_export</mat-icon> Movimientos
+      </a>
+      <a mat-list-item routerLink="/admin/bills" routerLinkActive="active">
+        <mat-icon>receipt_long</mat-icon> Facturas
+      </a>
+      <a mat-list-item routerLink="/admin/sale" routerLinkActive="active">
+        <mat-icon color="accent">shopping_cart</mat-icon> Nueva venta
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="border">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Sistema de Facturacion</span>
+      <span class="example-spacer"></span>
+      <div>
+        <a mat-icon-button matTooltip="Cerrar Sesión" (click)="logout()"><mat-icon class="logout">logout</mat-icon></a>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

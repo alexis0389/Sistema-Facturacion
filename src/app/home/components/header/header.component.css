@@ -1,0 +1,27 @@
+a {
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+button:hover {
+    background: #ff6f00;
+    color: white;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-icon {
+    position: relative;
+    top: 7px;
+   
+}
+
+.app-toolbar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+}

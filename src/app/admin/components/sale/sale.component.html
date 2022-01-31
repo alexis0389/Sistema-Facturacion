@@ -1,0 +1,108 @@
+<form>
+  <span class="span1"><strong>Cliente:</strong></span>
+  <mat-form-field class="item1" appearance="fill">
+    <mat-label>ID</mat-label>
+    <mat-icon matSuffix>search &nbsp;</mat-icon>
+    <input type="number" matInput autocomplete="off">
+  </mat-form-field>
+  <mat-form-field class="item2" appearance="fill">
+    <mat-label>Nombre del cliente</mat-label>
+    <input matInput type="text" disabled>
+  </mat-form-field>
+
+  <span class="span2"><strong>Producto:</strong></span>
+  <mat-form-field class="item3" appearance="fill">
+    <mat-label>Seleccione un producto</mat-label>
+    <mat-select>
+      <mat-option>
+
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button class="seleccionar" mat-stroked-button color="accent">Seleccionar</button>
+  <mat-divider></mat-divider>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre del producto</mat-label>
+    <input matInput type="text" disabled>
+  </mat-form-field>
+
+  <mat-form-field class="item1" appearance="fill">
+    <mat-label>Id</mat-label>
+    <input matInput type="number" disabled>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Precio</mat-label>
+    <input matInput type="number" disabled>
+    <span matPrefix>L.&nbsp;</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descuento</mat-label>
+    <input matInput type="number">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>IVA</mat-label>
+    <input matInput type="number">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Cantidad</mat-label>
+    <input matInput type="number">
+  </mat-form-field>
+  <button mat-stroked-button color="accent">Agregar</button>
+
+  <div class="mat-elevation-z8">
+    <table mat-table class="full-width-table" matSort aria-label="Elements">
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion del producto</th>
+        <td mat-cell *matCellDef="let row">{{row.descripcion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Cantidad</th>
+        <td mat-cell *matCellDef="let row">{{row.cantidad}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="precio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+        <td mat-cell *matCellDef="let row">{{row.precio}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="descuento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Descuento</th>
+        <td mat-cell *matCellDef="let row">{{row.descuento}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="iva">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>IVA</th>
+        <td mat-cell *matCellDef="let row">{{row.iva}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Total</strong></th>
+        <td mat-cell *matCellDef="let row">{{row.total}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td mat-cell *matCellDef="let row"></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator #paginator [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" aria-label="Select page">
+    </mat-paginator>
+  </div>
+</form>

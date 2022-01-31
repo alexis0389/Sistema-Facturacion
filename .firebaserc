@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "facturacion-a4770": {
+      "hosting": {
+        "facturacionFrontEnd": [
+          "facturacion-a4770"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "facturacion-a4770"
+  }
+}

@@ -1,0 +1,52 @@
+<form [formGroup]="formRegister" (ngSubmit)="Register($event)">
+    <img [src]="image" alt="RegisterImage">
+    <mat-card>
+        <mat-card-header>
+            <h1>Registro</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <mat-icon class="iconInput" matPrefix>alternate_email &nbsp;</mat-icon>
+                    <input type="email" matInput placeholder="Ej. pat@ejemplo.com" formControlName="email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" autocomplete="off" required>
+                    <mat-error *ngIf="Email!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Email!.hasError('pattern')">
+                        Ingrese un email valido
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Contraseña</mat-label>
+                    <mat-icon class="iconInput" matPrefix>lock &nbsp;</mat-icon>
+                    <input formControlName="password" matInput type="password" minlength="8" required>
+                    <mat-error *ngIf="Pass!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Pass!.hasError('minlength')">
+                        Minimo 8 caracteres!!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Confirma tu contraseña</mat-label>
+                    <mat-icon class="iconInput" matPrefix>lock &nbsp;</mat-icon>
+                    <input formControlName="passConfirm" appPasswordConfirm="password" matInput type="password" minlength="8" required>
+                    <mat-error *ngIf="PassConfim!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                    <mat-error *ngIf="PassConfim!.errors?.notEqual && !PassConfim!.hasError('required')">
+                        La contraseña no coincide
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button color="accent" type="submit" [disabled]="formRegister.invalid">Crear Cuenta</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>

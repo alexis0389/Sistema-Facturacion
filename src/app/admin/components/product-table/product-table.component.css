@@ -1,0 +1,22 @@
+.mat-elevation-z8 {
+  max-height: 500px;
+  width: 100%;
+}
+
+.full-width-table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  margin: 0;
+}
+
+.create:hover {
+  background: #FF6D00;
+  color: white;
+}
+
+.create {
+  margin: 5px 30px;
+  background: #FFAB40;
+  color: white;
+}

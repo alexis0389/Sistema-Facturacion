@@ -1,0 +1,49 @@
+<form [formGroup]="form" (ngSubmit)="saveCustomer($event)" class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Añadir Clientes</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Ingrese un nombre</mat-label>
+                    <mat-icon matPrefix>person &nbsp;</mat-icon>
+                    <input formControlName="nombre" matInput type="text" autocomplete="off">
+                    <mat-error *ngIf="Nombre!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Ingrese una dirección</mat-label>
+                    <mat-icon matPrefix>home &nbsp;</mat-icon>
+                    <input formControlName="direccion" matInput type="text" minlength="8" autocomplete="off">
+                    <mat-error *ngIf="Direccion!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Direccion!.hasError('minlength')">
+                        Minimo 8 caracteres!!!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Email</mat-label>
+                    <mat-icon matPrefix>alternate_email &nbsp;</mat-icon>
+                    <input type="email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" matInput placeholder="Ej. pat@ejemplo.com" formControlName="email" autocomplete="off">
+                    <mat-error *ngIf="Email!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Email!.hasError('pattern')">
+                        Ingrese un email valido
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid" onclick="location.reload()">Añadir nuevo cliente</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+<!---->

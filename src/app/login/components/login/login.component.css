@@ -1,0 +1,77 @@
+form {
+    background: #263238;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card {
+    z-index: 0;
+    width: 400px;
+    height: 350px;
+    padding: 80px 20px 0px 20px;
+    text-align: center;
+    border: 8px solid #263238;
+    outline: 4px solid #FF6D00;
+    background: #546E7A;
+}
+
+mat-card-header {
+    text-align:  center;
+    display: inline-block;
+}
+
+img {
+    width: 140px;
+    height: 140px;
+    display: inline-block;
+    position: relative;
+    top: -214px;
+    left: 293px;
+    z-index: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 15px 0;
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+mat-form-field {
+    width: 100%;
+    color: white;
+}
+
+::placeholder, mat-label {
+    color: #a7a3a3;
+}
+
+button {
+    width: 75%;
+    margin-bottom: 10px;
+}
+
+mat-card-footer {
+    text-align: center;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 500px) {
+    mat-card {
+        width: 250px;
+        padding: 10px;
+    }
+}

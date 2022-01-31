@@ -1,0 +1,62 @@
+<form [formGroup]="form" (ngSubmit)="saveProduct($event)" class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Añadir Productos</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <mat-form-field appearance="fill" class="input">
+                    <mat-label>Ingrese un nombre</mat-label>
+                    <mat-icon matPrefix>description &nbsp;</mat-icon>
+                    <input formControlName="nombre" matInput type="text" autocomplete="off">
+                    <mat-error *ngIf="Nombre!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" class="input">
+                    <mat-label>Ingrese una Categoria</mat-label>
+                    <mat-icon matPrefix>category &nbsp;</mat-icon>
+                    <mat-select formControlName="categoria">
+                        <mat-option *ngFor="let category of categories" [value]="category.value">
+                            {{ category.value }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="Categoria!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" class="input">
+                    <mat-label>Ingrese un precio</mat-label>
+                    <mat-icon matPrefix>attach_money &nbsp;</mat-icon>
+                    <input type="number" formControlName="precio" matInput min="1">
+                    <mat-error *ngIf="Precio!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Precio!.hasError('min')">
+                        Precio invalido!!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" class="input">
+                    <mat-label>Ingrese una Cantidad</mat-label>
+                    <mat-icon matPrefix>scatter_plot &nbsp;</mat-icon>
+                    <input formControlName="cantidad" matInput type="number" min="1">
+                    <mat-error *ngIf="Cantidad!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Cantidad!.hasError('min')">
+                        Cantidad invalida!!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid" onclick="location.reload()">Añadir nuevo producto</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

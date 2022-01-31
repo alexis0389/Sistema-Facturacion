@@ -1,0 +1,14 @@
+.full-width-table {
+  width: 100%;
+}
+
+.atras:hover {
+  background: #ff6f00;
+  color: white;
+}
+
+.atras {
+  margin: 5px 30px;
+  background: #FFAB40;
+  color: white;
+}

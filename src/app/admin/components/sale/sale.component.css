@@ -1,0 +1,30 @@
+.full-width-table {
+  width: 100%;
+}
+
+.span1, .span2 {
+  font-size: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.item1, .item3 {
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.item2 {
+  padding-top: 10px;
+  padding-right: 80px;
+}
+
+.item1 {
+  width: 110px;
+}
+
+.seleccionar {
+  height: 50px;
+  position: relative;
+  bottom: 8px;
+}
+

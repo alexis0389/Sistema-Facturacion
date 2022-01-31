@@ -1,0 +1,49 @@
+<form [formGroup]="formLogin"  (ngSubmit)="login($event)">
+    <img [src]="image" alt="LoginImage">
+    <mat-card>
+        <mat-card-header>
+            <h1>Login</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <mat-icon class="iconInput" matPrefix>alternate_email &nbsp;</mat-icon>
+                    <input type="email" matInput placeholder="Ej. pat@ejemplo.com" formControlName="email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" autocomplete="off">
+                    <mat-error *ngIf="Email!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Email!.hasError('pattern')">
+                        Ingrese un email valido
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <br>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Ingresa tu contraseña</mat-label>
+                    <mat-icon class="iconInput" matPrefix>lock &nbsp;</mat-icon>
+                    <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" minlength="8" required>
+                    <mat-icon matSuffix (click)="hide = !hide">
+                        {{hide ? 'visibility_off' : 'visibility'}}
+                    </mat-icon>
+                    <mat-error *ngIf="Pass!.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Pass!.hasError('minlength')">
+                        Minimo 8 caracteres!!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button color="accent" type="submit" [disabled]="formLogin.invalid">Iniciar sesión</button>
+            </div>
+            <mat-card-footer>
+                <br>
+                <div class="colxs">
+                    <a routerLink="register">Registrarse?</a>
+                </div>
+            </mat-card-footer>
+        </mat-card-content>
+    </mat-card>
+</form>

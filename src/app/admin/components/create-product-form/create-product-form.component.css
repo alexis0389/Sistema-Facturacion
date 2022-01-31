@@ -1,0 +1,50 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.container {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card-actions, mat-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    width: 500px;
+}
+
+::placeholder, mat-label, mat-form-field {
+    color: #c7c3c3;
+}
+
+mat-card-title {
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+mat-card {
+    background: #546E7A;
+    border: 8px solid #263238;
+    outline: 4px solid #FF6D00;
+}
+
+.file {
+    z-index: 9;
+}
